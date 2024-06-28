@@ -17,6 +17,7 @@ if(MESSAGE)
     message( STATUS "srcCMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}" )
 endif()
 
+add_subdirectory(concurrency)
 
 
 add_executable(main main.cpp)
