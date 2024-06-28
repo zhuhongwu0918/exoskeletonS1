@@ -2,9 +2,12 @@
 #include <functional>
 #include <thread>
 #include <mutex>
+
 #include "concurrency/threadpool.h"
-int main(void)
-{
+
+
+int main() {
+
     workshop::threadpool<std::function<void(int)>, int> pool(10, 5);
     std::mutex mtx;
     auto task = [&mtx](int idx) {
@@ -16,7 +19,5 @@ int main(void)
         pool.postTask(task, int{i});
     }
     pool.sync();
-
-    std::cout << "Hello World!" << std::endl;
     return 0;
 }
